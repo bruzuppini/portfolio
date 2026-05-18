@@ -1,114 +1,148 @@
-# Projeto Portfólio Pessoal
+# 💻 Projeto Portfólio Pessoal
+
+Projeto desenvolvido com **HTML5**, **CSS3** e **JavaScript**, com o objetivo de criar um portfólio pessoal moderno, responsivo e interativo.
+
+A aplicação apresenta informações sobre a pessoa desenvolvedora, projetos, tecnologias e formas de contato, além de consumir dados da **API do GitHub** para manter informações do perfil e repositórios atualizadas automaticamente.
 
 ---
 
-<div align="center"> 
-	<img src="https://img.shields.io/badge/HTML-5-orange?style=for-the-badge&logo=html5" alt="HTML Badge" /> 
-	<img src="https://img.shields.io/badge/CSS-3-purple?style=for-the-badge&logo=css&logoColor=purple" alt="CSS Badge" /> 
-	<img src="https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript&logoColor=yellow" alt="JavaScript Badge" /> 
-</div>
+## ✨ Sobre o projeto
 
-<br />
+O **Projeto Portfólio Pessoal** foi criado para reunir informações profissionais em uma interface clara, visualmente agradável e responsiva.
 
-O **Projeto Portfólio Pessoal** é um **site profissional moderno**, desenvolvido com **HTML, CSS e JavaScript**, com o objetivo de apresentar informações sobre a pessoa desenvolvedora, seus projetos e formas de contato de maneira clara, interativa e responsiva.
+O site conta com integração com a **GitHub API**, permitindo exibir dados dinâmicos do perfil e listar repositórios automaticamente.
 
-O projeto consome dados dinâmicos da **API do GitHub**, permitindo que informações como perfil e repositórios sejam carregadas automaticamente, mantendo o conteúdo sempre atualizado.
+Também possui carrossel de projetos, formulário de contato com validação e página de confirmação de envio.
 
-------
+---
 
-## Funcionalidades
+## 🛠️ Tecnologias utilizadas
 
-- Estrutura de páginas desenvolvida com **HTML semântico**
-- Estilização moderna com **CSS**, utilizando:
-  - Variáveis CSS
-  - Animações
-  - Layout responsivo (desktop, tablet e mobile)
-- Integração com a **API do GitHub** para:
-  - Exibição dinâmica das informações do perfil
-  - Listagem automática dos repositórios
-- Exibição dos projetos em **carrossel interativo** utilizando **Swiper.js**
-- **Formulário de contato com validação no frontend**, garantindo o correto preenchimento dos campos
-- Página dedicada de **confirmação de envio** do formulário
-- Navegação fluida com menu fixo e rolagem suave
-- Interface intuitiva e organizada, focada na experiência do usuário
+| Tecnologia | Descrição |
+|---|---|
+| HTML5 | Estrutura semântica das páginas |
+| CSS3 | Estilização, responsividade e animações |
+| JavaScript ES6+ | Interatividade, validações e consumo de API |
+| GitHub API | Exibição dinâmica de perfil e repositórios |
+| Swiper.js | Carrossel responsivo de projetos |
+| FormSubmit | Serviço de envio de e-mails via formulário |
+| GitHub Pages | Deploy da aplicação |
 
-------
+---
 
-## Estrutura do Projeto
+## 📚 Conceitos praticados
 
-```
+- HTML semântico
+- CSS responsivo
+- Variáveis CSS
+- Animações e transições
+- Manipulação do DOM
+- Consumo de API
+- Validação de formulário
+- Integração com GitHub API
+- Carrossel com Swiper.js
+- Deploy com GitHub Pages
+- Organização de projeto web
+
+---
+
+## ⚙️ Funcionalidades
+
+- Exibição de informações pessoais e profissionais
+- Consumo da API do GitHub
+- Listagem dinâmica de repositórios
+- Carrossel interativo de projetos
+- Formulário de contato com validação
+- Página de confirmação de envio
+- Menu fixo
+- Rolagem suave
+- Layout responsivo para desktop, tablet e mobile
+- Interface organizada e intuitiva
+
+---
+
+## 📁 Estrutura do projeto
+
+```txt
 portfolio/
-│
-├── index.html        # Página principal do portfólio
-├── success.html      # Página de confirmação de envio do formulário
-│
+├── index.html
+├── success.html
 ├── assets/
 │   ├── css/
-│   │   └── styles.css    # Estilos e responsividade
+│   │   └── styles.css
 │   ├── js/
-│   │   └── scripts.js   # Integração com GitHub, carrossel e validações
-│   ├── img/             # Imagens e ilustrações
-│   └── icons/           # Ícones das linguagens e redes sociais
-│
+│   │   └── scripts.js
+│   ├── img/
+│   └── icons/
 └── README.md
 ```
 
-------
+---
 
-## Tecnologias Utilizadas
+## 🚀 Como executar o projeto
 
-- **HTML5**: Estruturação semântica do conteúdo
-- **CSS3**: Estilização, layout responsivo e animações
-- **JavaScript (ES6+)**: Interatividade, consumo de APIs e validações
-- **Swiper.js**: Carrossel de projetos responsivo
-- **Fom Submit:** Serviço de envio de e-mails via formulário HTML
-- **GitHub API**: Fonte dinâmica de dados do perfil e repositórios
+### 1. Clone o repositório
 
-------
+```bash
+git clone https://github.com/bruzuppini/projeto_html.git
+```
 
-## Executando Localmente
+### 2. Acesse a pasta do projeto
 
-Para executar o projeto em ambiente local, siga os passos abaixo.
+```bash
+cd projeto_html
+```
 
-### Pré-requisitos
+### 3. Abra no VS Code
 
-- [Visual Studio Code](https://code.visualstudio.com/) (ou outro editor de sua preferência)
-- Extensão **Live Server** instalada no VS Code
+```bash
+code .
+```
 
-### Passos
+### 4. Execute com Live Server
 
-1. Clone o repositório:
+Abra o arquivo `index.html`, clique com o botão direito e selecione:
 
-   ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   ```
+```txt
+Open with Live Server
+```
 
-2. Acesse a pasta do projeto:
+O projeto será aberto no navegador e poderá ser visualizado localmente.
 
-   ```bash
-   cd seu-repositorio
-   ```
+---
 
-3. Abra o projeto no Visual Studio Code:
+## 🌐 Deploy
 
-   ```bash
-   code .
-   ```
+O projeto pode ser publicado utilizando o **GitHub Pages**.
 
-4. Abra o arquivo `index.html`, clique com o botão direito e selecione **"Open with Live Server"**.
+Link do repositório:
 
-O site será aberto no navegador e todas as alterações poderão ser visualizadas em tempo real.
+```txt
+https://github.com/bruzuppini/projeto_html
+```
 
-------
+---
 
-## Deploy
+## 🧪 Formulário de contato
 
-Este site está disponível publicamente através do **GitHub Pages**. Você pode acessar a versão online pelo link abaixo:
+O formulário utiliza o **FormSubmit** para envio de mensagens por e-mail.
 
-🔗 https://github.com/bruzuppini/projeto_html
+Além disso, possui validação no frontend para garantir o preenchimento correto dos campos antes do envio.
 
-------
+---
 
-## Contribuições
+## 🎯 Objetivo
 
-Contribuições são bem-vindas. Caso tenha sugestões de melhorias, correções ou novas funcionalidades, sinta-se à vontade para abrir uma **issue** ou enviar um **pull request**.
+Este projeto foi desenvolvido para praticar a criação de páginas web modernas com **HTML**, **CSS** e **JavaScript**, reforçando conceitos de responsividade, consumo de API, manipulação do DOM e organização visual de um portfólio profissional.
+
+---
+
+## 👩‍💻 Autor
+
+Desenvolvido por **Bruna Zuppini Bacchiega**.
+
+---
+
+```txt
+☾ design, código e personalidade em cada seção
+```
