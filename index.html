@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Bruna Zuppini">
-  <meta name="description" content="Portfólio de Bruna Zuppini, desenvolvedora Full Stack.">
+  <meta name="author" content="Bruna Zuppini Bacchiega">
+  <meta name="description" content="Bruna Zuppini Bacchiega — desenvolvedora Fullstack em São Paulo, com experiência em React, TypeScript, Node.js e NestJS. Confira projetos, trajetória e formas de contato.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bruna Zuppini Bacchiega · Desenvolvedora Fullstack">
+  <meta property="og:description" content="Projetos em React, TypeScript, Node.js e NestJS. Formação em Ciência e Tecnologia pela UFABC e Bootcamp Fullstack pela Generation Brasil.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/48595147?v=4">
+  <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <title>Bruna Zuppini · Desenvolvedora Full Stack</title>
+  <title>Bruna Zuppini Bacchiega · Desenvolvedora Fullstack</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -184,7 +189,7 @@
       margin-bottom: 2rem;
       opacity: 0;
       animation: up 0.9s ease forwards 0.4s;
-      text-shadow: 0 0 48px rgba(192,132,252,0.18);
+      text-shadow: 0 0 24px rgba(192,132,252,0.1);
     }
     h1 em {
       font-style: italic;
@@ -247,11 +252,11 @@
       background: linear-gradient(135deg, var(--v) 0%, var(--p) 55%, var(--mid) 100%);
       color: var(--wh);
       border: 1px solid rgba(192,132,252,0.35);
-      box-shadow: 0 0 26px rgba(107,33,168,0.22);
+      box-shadow: 0 4px 18px rgba(59,15,168,0.22);
     }
     .btn-p:hover {
       background: linear-gradient(135deg, var(--p) 0%, var(--mid) 100%);
-      box-shadow: 0 0 36px rgba(107,33,168,0.45);
+      box-shadow: 0 6px 22px rgba(59,15,168,0.32);
       transform: translateY(-2px);
     }
     .btn-g {
@@ -265,6 +270,67 @@
       background: rgba(107,33,168,0.1);
     }
 
+    /* ── HEADER RIGHT / MOBILE NAV ── */
+    .head-r { display: flex; align-items: center; gap: 1.75rem; }
+    .cv-lnk {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      color: var(--lav);
+      text-decoration: none;
+      border: 1px solid var(--bdr2);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      transition: all 0.25s;
+    }
+    .cv-lnk:hover { color: var(--wh); border-color: var(--lav); background: rgba(107,33,168,0.12); }
+    .nav-cv { display: none; }
+    .burger {
+      display: none;
+      width: 34px; height: 34px;
+      border: none; background: transparent; cursor: pointer;
+      flex-direction: column; justify-content: center; gap: 5px;
+      padding: 0;
+    }
+    .burger span { width: 100%; height: 1px; background: var(--lil); transition: all 0.3s; }
+    .burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ── EXPERIENCE / TRAJETÓRIA ── */
+    #trajeto { background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 55%, var(--bg) 100%); }
+    .tl { display: flex; flex-direction: column; gap: 0; max-width: 720px; }
+    .tl-item {
+      display: grid; grid-template-columns: 130px 1px 1fr;
+      gap: 0 2rem; padding-bottom: 2.75rem; position: relative;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-when {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em;
+      color: var(--lav); padding-top: 0.15rem;
+    }
+    .tl-line { position: relative; background: var(--bdr2); }
+    .tl-line::before {
+      content: ''; position: absolute; top: 0.3rem; left: 50%; transform: translateX(-50%);
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--bg); border: 1px solid var(--lav);
+    }
+    .tl-item.now .tl-line::before { background: var(--lav); box-shadow: 0 0 10px rgba(192,132,252,0.6); }
+    .tl-body h3 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.15rem; color: var(--wh); margin-bottom: 0.35rem; }
+    .tl-org { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(192,132,252,0.55); margin-bottom: 0.6rem; }
+    .tl-body p { font-size: 0.88rem; color: var(--mut); line-height: 1.75; max-width: 52ch; }
+
+    /* ── PROJECT TAGS ── */
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .proj-tag {
+      font-family: 'Space Mono', monospace; font-size: 0.54rem; letter-spacing: 0.08em;
+      color: rgba(192,132,252,0.65); border: 1px solid var(--bdr); padding: 0.28rem 0.6rem;
+    }
+    .proj-role {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem; letter-spacing: 0.15em;
+      color: rgba(221,214,254,0.4); margin-top: -1rem; margin-bottom: 1.25rem; display: block;
+    }
+
     /* hero photo */
     .hero-r {
       display: flex; align-items: center; justify-content: center;
@@ -273,8 +339,7 @@
     }
     .photo-wrap {
       position: relative; width: 320px;
-      animation: float 6s ease-in-out infinite;
-      filter: drop-shadow(0 30px 60px rgba(59,15,168,0.35));
+      filter: drop-shadow(0 20px 40px rgba(7,1,15,0.4));
     }
     .photo-wrap::before {
       content: '';
@@ -427,7 +492,7 @@
       background:linear-gradient(90deg, transparent, var(--mid), transparent);
       opacity:0; transition:opacity 0.4s;
     }
-    .proj-card:hover { border-color:var(--bdr2); transform:translateY(-5px); box-shadow:0 24px 60px rgba(59,15,168,0.2); }
+    .proj-card:hover { border-color:var(--bdr2); transform:translateY(-3px); box-shadow:0 12px 30px rgba(7,1,15,0.35); }
     .proj-card:hover::before { opacity:1; }
     .proj-lang {
       font-family:'Space Mono',monospace; font-size:0.56rem; letter-spacing:0.2em; color:var(--lav);
@@ -484,7 +549,6 @@
 
     /* ── FOOTER ── */
     footer { position:relative; z-index:10; text-align:center; padding:3.5rem 2rem; border-top:1px solid var(--bdr); }
-    .f-jp { font-family:'Playfair Display',serif; font-style:italic; font-size:0.9rem; color:rgba(192,132,252,0.32); margin-bottom:0.75rem; letter-spacing:0.06em; }
     .f-cp { font-family:'Space Mono',monospace; font-size:0.55rem; letter-spacing:0.25em; color:rgba(192,132,252,0.28); }
 
     /* ── SCROLL PROGRESS ── */
@@ -496,11 +560,6 @@
       pointer-events:none;
     }
 
-    /* ── CONSTELLATION ── */
-    #constellation {
-      position:fixed; inset:0; z-index:0; pointer-events:none;
-    }
-
     @media(max-width:900px){
       #hero{grid-template-columns:1fr; padding-top:8rem;}
       .hero-r{display:none;}
@@ -508,8 +567,26 @@
       .ct-wrap{grid-template-columns:1fr; gap:3rem;}
     }
     @media(max-width:600px){
-      nav{display:none;}
       section{padding:5rem 5vw;}
+      .burger{display:flex;}
+      nav{
+        position:fixed; top:0; right:0; bottom:0;
+        width:min(78vw,320px);
+        flex-direction:column; align-items:flex-start; gap:2rem;
+        padding:6.5rem 2rem 2rem;
+        background:rgba(7,1,15,0.97); backdrop-filter:blur(18px);
+        border-left:1px solid var(--bdr);
+        transform:translateX(100%); transition:transform 0.35s ease;
+        z-index:150;
+      }
+      nav.open{ transform:translateX(0); }
+      nav a{ font-size:0.75rem; }
+      .head-r .cv-lnk{ display:none; }
+      .nav-cv{ display:inline-block; margin-top:0.75rem; }
+      .tl-item{ grid-template-columns:16px 1fr; }
+      .tl-line{ grid-column:1; grid-row:1 / 3; }
+      .tl-when{ grid-column:2; grid-row:1; padding-top:0; margin-bottom:0.3rem; }
+      .tl-body{ grid-column:2; grid-row:2; }
     }
   </style>
 </head>
@@ -521,20 +598,23 @@
   <!-- STARS -->
   <div id="starfield"></div>
 
-  <!-- CONSTELLATION CANVAS -->
-  <canvas id="constellation"></canvas>
-
   <!-- AMBIENT GLOW CANVAS -->
   <canvas id="ambient"></canvas>
 
   <header>
     <a href="index.html" class="logo">bruzuppini ✦</a>
-    <nav>
+    <nav id="nav">
       <a href="#hero">início</a>
       <a href="#about">sobre</a>
+      <a href="#trajeto">trajetória</a>
       <a href="#projects">projetos</a>
       <a href="#contact">contato</a>
+      <a href="./assets/cv/CV_Bruna_Zuppini.pdf" target="_blank" rel="noopener" class="cv-lnk nav-cv">currículo ↓</a>
     </nav>
+    <div class="head-r">
+      <a href="./assets/cv/CV_Bruna_Zuppini.pdf" target="_blank" rel="noopener" class="cv-lnk">currículo ↓</a>
+      <button class="burger" id="burger" aria-label="abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
   </header>
 
   <div class="wrap">
@@ -542,13 +622,13 @@
     <!-- HERO -->
     <section id="hero">
       <div class="hero-l">
-        <p class="eyebrow">desenvolvedora full stack</p>
+        <p class="eyebrow">desenvolvedora fullstack · são paulo, br</p>
         <h1><span class="line">Bruna</span><span class="line"><em>Zuppini.</em></span></h1>
-        <p class="hero-desc">Especializada em criar experiências digitais que unem código e personalidade — do frontend ao backend, com cuidado em cada detalhe.</p>
-        <p class="jp">⋆｡°✩ 辛い時こそ目標を見失わないで ✩°｡⋆</p>
+        <p class="hero-desc">Desenvolvo aplicações web completas com React, TypeScript, Node.js e NestJS — do consumo de APIs no frontend à modelagem de dados no backend. Formação em Ciência e Tecnologia pela UFABC e Bootcamp Fullstack pela Generation Brasil.</p>
         <div class="cta-row">
           <a href="#contact" class="btn btn-p">entre em contato</a>
-          <a href="#about" class="btn btn-g">saiba mais</a>
+          <a href="#projects" class="btn btn-g">ver projetos</a>
+          <a href="./assets/cv/CV_Bruna_Zuppini.pdf" target="_blank" rel="noopener" class="btn btn-g">baixar currículo</a>
         </div>
       </div>
       <div class="hero-r">
@@ -571,17 +651,17 @@
       <div class="about-g">
         <div class="rv">
           <div class="s-lab">sobre mim</div>
-          <h2>design, código<br><em>e personalidade</em></h2>
-          <p>Sou uma desenvolvedora full stack apaixonada por criar interfaces que respiram. Acredito que o código pode ser elegante — como uma boa frase ou uma composição visual equilibrada.</p>
-          <p>Trabalho com JavaScript e TypeScript do frontend ao backend, construindo desde interfaces com React até APIs robustas com Node.js e NestJS.</p>
+          <h2>desenvolvimento com<br><em>cuidado e propósito</em></h2>
+          <p>Sou desenvolvedora fullstack com experiência prática em aplicações web completas, trabalhando com React, TypeScript e Node.js. Participei do desenvolvimento das plataformas VittaFit, VittaRun e VittaLis como projetos do Bootcamp Generation Brasil, com foco em componentização, consumo de APIs REST e colaboração em equipe via Git.</p>
+          <p>Tenho perfil proativo e organizado, com facilidade para resolver problemas e me adaptar a novos contextos — algo que carrego de experiências anteriores em atendimento e suporte administrativo, antes de migrar para tecnologia.</p>
           <p class="path-t">✦ current path</p>
           <div class="badges">
-            <span class="badge on">building fullstack</span>
-            <span class="badge on">improving react</span>
-            <span class="badge on">working with apis</span>
-            <span class="badge">learning python</span>
-            <span class="badge">exploring c++</span>
-            <span class="badge">studying c#</span>
+            <span class="badge on">cursando ciência da computação (ufabc)</span>
+            <span class="badge on">aprofundando react + typescript</span>
+            <span class="badge on">construindo apis com nestjs</span>
+            <span class="badge">estudando python</span>
+            <span class="badge">explorando c++</span>
+            <span class="badge">estudando c#</span>
           </div>
           <div class="gh-strip rv d1" id="gh-strip">
             <div class="gh-item"><span class="gh-num" id="gh-repos">—</span><span class="gh-lab">repositórios</span></div>
@@ -591,14 +671,72 @@
         </div>
         <div class="rv d1">
           <table class="sk-tbl">
-            <tr><td>nome</td><td>Bruna Zuppini</td></tr>
-            <tr><td>função</td><td>fullstack developer</td></tr>
-            <tr><td>frontend</td><td>React · Vite · HTML · CSS</td></tr>
-            <tr><td>backend</td><td>Node.js · NestJS · REST APIs</td></tr>
-            <tr><td>linguagens</td><td>JavaScript · TypeScript · SQL</td></tr>
+            <tr><td>nome</td><td>Bruna Zuppini Bacchiega</td></tr>
+            <tr><td>função</td><td>desenvolvedora fullstack</td></tr>
+            <tr><td>localização</td><td>Santo André / São Paulo, BR</td></tr>
+            <tr><td>frontend</td><td>React · TypeScript · HTML · CSS</td></tr>
+            <tr><td>backend</td><td>Node.js · NestJS · REST APIs · MySQL</td></tr>
+            <tr><td>linguagens de programação</td><td>JavaScript · TypeScript · SQL</td></tr>
+            <tr><td>práticas</td><td>POO · Scrum/Ágil · Git & GitHub</td></tr>
             <tr><td>ferramentas</td><td>Git · Insomnia · VS Code</td></tr>
+            <tr><td>idiomas</td><td>Português (nativo) · Inglês (interm./avançado) · Espanhol (básico) · Japonês (básico)</td></tr>
             <tr><td>aprendendo</td><td>Python · C++ · C#</td></tr>
           </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="hline"></div>
+
+    <!-- TRAJETÓRIA -->
+    <section id="trajeto">
+      <div class="s-lab rv">trajetória</div>
+      <h2 class="rv">formação <em>e experiência</em></h2>
+      <div class="tl">
+        <div class="tl-item now rv">
+          <div class="tl-when">2026 — atual</div>
+          <div class="tl-line"></div>
+          <div class="tl-body">
+            <h3>Bacharelado em Ciência e Tecnologia</h3>
+            <div class="tl-org">Universidade Federal do ABC (UFABC) · cursando</div>
+            <p>Formação interdisciplinar em Santo André, com continuidade prevista em Ciência da Computação.</p>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="tl-when">concluído 05/2026</div>
+          <div class="tl-line"></div>
+          <div class="tl-body">
+            <h3>Bootcamp Desenvolvedor Full Stack</h3>
+            <div class="tl-org">Generation Brasil</div>
+            <p>JavaScript, TypeScript, React, Node.js, MySQL, Git e metodologias ágeis (Scrum), com projetos em equipe do início ao fim.</p>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="tl-when">05/2024 — 07/2024</div>
+          <div class="tl-line"></div>
+          <div class="tl-body">
+            <h3>Garçonete e Assistente Geral</h3>
+            <div class="tl-org">Restaurante Esquina Burger, Santo André/SP</div>
+            <p>Atendimento presencial e delivery, organização do estabelecimento e suporte operacional.</p>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="tl-when">06/2022</div>
+          <div class="tl-line"></div>
+          <div class="tl-body">
+            <h3>Certificação Start 2.0</h3>
+            <div class="tl-org">Escola SAGA, Santo André/SP · 60h</div>
+            <p>Formação de nível iniciante/intermediário como preparação para a transição de carreira.</p>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="tl-when">10/2019 — 12/2020</div>
+          <div class="tl-line"></div>
+          <div class="tl-body">
+            <h3>Jovem Aprendiz Administrativo</h3>
+            <div class="tl-org">Fórum Federal de Mauá, 40ª Subseção Judiciária</div>
+            <p>Apoio em audiências de conciliação, elaboração e revisão de documentos administrativos e jurídicos, organização de processos e atendimento ao público.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -615,9 +753,67 @@
         </div>
       </div>
       <div class="swiper projects-swiper rv d1">
-        <div class="swiper-wrapper" id="proj-wrap"></div>
+        <div class="swiper-wrapper" id="proj-wrap">
+
+          <div class="swiper-slide">
+            <div class="proj-card">
+              <div class="proj-lang"><span class="ldot" style="background:#3178c6"></span>NestJS · React</div>
+              <h3>VittaFit</h3>
+              <span class="proj-role">projeto em equipe · dev tester</span>
+              <p>Plataforma de gestão de saúde, treinos e alimentação: centraliza dados físicos, dietas e rotinas de exercício por usuário, com relacionamento individual entre usuário, dieta e treino.</p>
+              <div class="proj-tags"><span class="proj-tag">NestJS</span><span class="proj-tag">TypeScript</span><span class="proj-tag">TypeORM</span><span class="proj-tag">MySQL</span><span class="proj-tag">Swagger</span></div>
+              <a href="https://github.com/Grupo-5-JS-14/VittaFit-FrontEnd" target="_blank" rel="noopener" class="proj-lnk">ver repositório</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="proj-card">
+              <div class="proj-lang"><span class="ldot" style="background:#3178c6"></span>NestJS · React</div>
+              <h3>VittaRun</h3>
+              <span class="proj-role">projeto em equipe · dev</span>
+              <p>Backend de uma plataforma de delivery focada em alimentação saudável: gestão de lojas por categoria (fit, vegana, natural), com busca por nome e categoria.</p>
+              <div class="proj-tags"><span class="proj-tag">NestJS</span><span class="proj-tag">TypeScript</span><span class="proj-tag">TypeORM</span><span class="proj-tag">MySQL</span><span class="proj-tag">Insomnia</span></div>
+              <a href="https://github.com/Grupo-5-JS-14/VittaRun-FrontEnd" target="_blank" rel="noopener" class="proj-lnk">ver repositório</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="proj-card">
+              <div class="proj-lang"><span class="ldot" style="background:#3178c6"></span>NestJS · React</div>
+              <h3>VittaLis</h3>
+              <span class="proj-role">projeto em equipe</span>
+              <p>Terceira plataforma do ecossistema Vitta, construída pela mesma equipe e com a mesma stack — interface React consumindo APIs REST do backend NestJS.</p>
+              <div class="proj-tags"><span class="proj-tag">NestJS</span><span class="proj-tag">TypeScript</span><span class="proj-tag">TypeORM</span><span class="proj-tag">MySQL</span></div>
+              <a href="https://github.com/Grupo-5-JS-14/VittaLis-FrontEnd" target="_blank" rel="noopener" class="proj-lnk">ver repositório</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="proj-card">
+              <div class="proj-lang"><span class="ldot" style="background:#3572A5"></span>Node.js</div>
+              <h3>Conta Bancária</h3>
+              <span class="proj-role">projeto individual · 2024</span>
+              <p>Sistema de gerenciamento bancário em backend puro: criação de conta, depósito, saque e consulta de saldo, aplicando orientação a objetos e tipagem estática.</p>
+              <div class="proj-tags"><span class="proj-tag">Node.js</span><span class="proj-tag">TypeScript</span><span class="proj-tag">POO</span></div>
+              <a href="https://github.com/bruzuppini/conta_bancaria" target="_blank" rel="noopener" class="proj-lnk">ver repositório</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="proj-card">
+              <div class="proj-lang"><span class="ldot" style="background:#e34c26"></span>HTML · CSS · JS</div>
+              <h3>Portfólio Pessoal</h3>
+              <span class="proj-role">projeto individual</span>
+              <p>Este site: apresentação de projetos e habilidades técnicas, com integração à API do GitHub e formulário de contato funcional.</p>
+              <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
+              <a href="https://github.com/bruzuppini/portfolio" target="_blank" rel="noopener" class="proj-lnk">ver repositório</a>
+            </div>
+          </div>
+
+        </div>
         <div class="swiper-pagination"></div>
       </div>
+      <p style="margin-top:2rem;font-size:0.85rem;color:var(--mut);">Outros repositórios e experimentos estão disponíveis no <a href="https://github.com/bruzuppini" target="_blank" rel="noopener" style="color:var(--lav);">GitHub</a>.</p>
     </section>
 
     <div class="hline"></div>
@@ -636,7 +832,7 @@
           </div>
         </div>
         <form id="formulario" action="https://formsubmit.co/3c88d9878c463a457eff1fa2203b68bf" method="POST" class="rv d1">
-          <input type="hidden" name="_next" value="https://bruzuppini.github.io/projeto_html/success.html">
+          <input type="hidden" name="_next" value="https://bruzuppini.github.io/portfolio/sucess.html">
           <input type="hidden" name="_captcha" value="false">
           <div class="fld"><label for="nome">nome</label><input id="nome" name="nome" type="text" placeholder="Seu nome completo"><span class="ferr" id="erro-nome"></span></div>
           <div class="fld"><label for="email">e-mail</label><input id="email" name="email" type="text" placeholder="seu@email.com"><span class="ferr" id="erro-email"></span></div>
@@ -650,7 +846,6 @@
   </div>
 
   <footer>
-    <p class="f-jp">☾⋆｡𖦹 °✩ 何より大事なのは、人生を楽しむこと。✩° 𖦹｡⋆☽</p>
     <p class="f-cp">desenvolvido por bruna zuppini · 2026</p>
   </footer>
 
@@ -661,10 +856,10 @@
   ─────────────────────────────────────────── */
   (function(){
     const field = document.getElementById('starfield');
-    const total = 220;
+    const total = 90;
     for(let i=0;i<total;i++){
       const s = document.createElement('div');
-      const isPurple = Math.random() < 0.12;
+      const isPurple = Math.random() < 0.06;
       const size = isPurple ? (Math.random()*3+2) : (Math.random()*1.8+0.4);
       s.className = 'star' + (isPurple ? ' purple' : '');
       s.style.cssText = `
@@ -678,7 +873,6 @@
       `;
       field.appendChild(s);
     }
-    /* Sem estrelas cadentes para não aparecerem barras brancas passando no fundo. */
   })();
 
   /* ──────────────────────────────────────────
@@ -707,61 +901,6 @@
   })();
 
   /* ──────────────────────────────────────────
-     CONSTELLATION — connected dots that drift
-  ─────────────────────────────────────────── */
-  (function(){
-    const cv = document.getElementById('constellation');
-    const cx = cv.getContext('2d');
-    let W,H;
-    const DOTS=55, CONNECT_DIST=160, DOT_SPEED=0.25;
-
-    function resize(){ W=cv.width=window.innerWidth; H=cv.height=window.innerHeight; }
-    window.addEventListener('resize',resize); resize();
-
-    const dots = Array.from({length:DOTS},()=>({
-      x: Math.random()*window.innerWidth,
-      y: Math.random()*window.innerHeight,
-      vx:(Math.random()-0.5)*DOT_SPEED,
-      vy:(Math.random()-0.5)*DOT_SPEED,
-      r: Math.random()*1.2+0.4,
-    }));
-
-    function loop(){
-      cx.clearRect(0,0,W,H);
-      dots.forEach(d=>{
-        d.x+=d.vx; d.y+=d.vy;
-        if(d.x<0||d.x>W) d.vx*=-1;
-        if(d.y<0||d.y>H) d.vy*=-1;
-      });
-      /* lines */
-      for(let i=0;i<DOTS;i++){
-        for(let j=i+1;j<DOTS;j++){
-          const dx=dots[i].x-dots[j].x, dy=dots[i].y-dots[j].y;
-          const dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<CONNECT_DIST){
-            const alpha=(1-dist/CONNECT_DIST)*0.12;
-            cx.strokeStyle=`rgba(192,132,252,${alpha})`;
-            cx.lineWidth=0.5;
-            cx.beginPath();
-            cx.moveTo(dots[i].x,dots[i].y);
-            cx.lineTo(dots[j].x,dots[j].y);
-            cx.stroke();
-          }
-        }
-      }
-      /* dots */
-      dots.forEach(d=>{
-        cx.beginPath();
-        cx.arc(d.x,d.y,d.r,0,Math.PI*2);
-        cx.fillStyle='rgba(192,132,252,0.35)';
-        cx.fill();
-      });
-      requestAnimationFrame(loop);
-    }
-    loop();
-  })();
-
-  /* ──────────────────────────────────────────
      SCROLL PROGRESS BAR
   ─────────────────────────────────────────── */
   window.addEventListener('scroll',()=>{
@@ -780,41 +919,44 @@
   /* ──────────────────────────────────────────
      GITHUB API
   ─────────────────────────────────────────── */
-  const LANG_COLORS={JavaScript:'#f7df1e',TypeScript:'#3178c6',HTML:'#e34c26',CSS:'#563d7c',Python:'#3572A5'};
-  let swiper;
+  /* Projetos são curados manualmente no HTML (mais contexto pra quem visita
+     do que uma descrição genérica puxada da API). O carrossel inicializa
+     direto; as estatísticas do perfil (repos/seguidores) ainda vêm da API. */
+  const swiper = new Swiper('.projects-swiper',{
+    slidesPerView:1, spaceBetween:20,
+    pagination:{el:'.swiper-pagination',clickable:true},
+    breakpoints:{640:{slidesPerView:2},1024:{slidesPerView:3}}
+  });
 
-  async function loadGH(){
+  async function loadGHStats(){
     try{
       const u=await(await fetch('https://api.github.com/users/bruzuppini')).json();
       document.getElementById('gh-repos').textContent=u.public_repos??'—';
       document.getElementById('gh-followers').textContent=u.followers??'—';
       document.getElementById('gh-following').textContent=u.following??'—';
-
-      const repos=await(await fetch('https://api.github.com/users/bruzuppini/repos?sort=updated&per_page=12')).json();
-      const wrap=document.getElementById('proj-wrap');
-      repos.filter(r=>!r.fork).forEach(r=>{
-        const sl=document.createElement('div');
-        sl.className='swiper-slide';
-        sl.innerHTML=`<div class="proj-card">
-          <div class="proj-lang"><span class="ldot" style="background:${LANG_COLORS[r.language]||'#9333EA'}"></span>${r.language||'code'}</div>
-          <h3>${r.name.replace(/_/g,' ')}</h3>
-          <p>${r.description||'Disponível no GitHub.'}</p>
-          <a href="${r.html_url}" target="_blank" rel="noopener" class="proj-lnk">ver repositório</a>
-        </div>`;
-        wrap.appendChild(sl);
-      });
-
-      swiper=new Swiper('.projects-swiper',{
-        slidesPerView:1, spaceBetween:20,
-        pagination:{el:'.swiper-pagination',clickable:true},
-        breakpoints:{640:{slidesPerView:2},1024:{slidesPerView:3}}
-      });
     }catch(e){console.warn(e);}
   }
-  loadGH();
+  loadGHStats();
 
   document.getElementById('prev-btn').addEventListener('click',()=>swiper&&swiper.slidePrev());
   document.getElementById('next-btn').addEventListener('click',()=>swiper&&swiper.slideNext());
+
+  /* ──────────────────────────────────────────
+     MOBILE NAV
+  ─────────────────────────────────────────── */
+  (function(){
+    const burger=document.getElementById('burger');
+    const nav=document.getElementById('nav');
+    burger.addEventListener('click',()=>{
+      const open=nav.classList.toggle('open');
+      burger.classList.toggle('open',open);
+      burger.setAttribute('aria-expanded',open);
+    });
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      nav.classList.remove('open'); burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    }));
+  })();
 
   /* ──────────────────────────────────────────
      FORM VALIDATION
