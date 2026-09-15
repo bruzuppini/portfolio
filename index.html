@@ -1,170 +1,981 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    
-    <meta charset="UTF-8">
-	
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-    <meta name="author" content="Bruna Zuppini">
-    <meta 
-        name="description"
-        content="Portfólio de Bruna Zuppini, 
-                desenvolvedora Full Stack especializado em criar experiências 
-                digitais incríveis. Conheça meus projetos e entre em contato."
-    >
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Bruna Zuppini Bacchiega">
+  <meta name="description" content="Bruna Zuppini Bacchiega — desenvolvedora Fullstack em São Paulo, com experiência em React, TypeScript, Node.js e NestJS. Confira projetos, trajetória e formas de contato.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bruna Zuppini Bacchiega · Desenvolvedora Fullstack">
+  <meta property="og:description" content="Projetos em React, TypeScript, Node.js e NestJS. Formação em Ciência e Tecnologia pela UFABC e Bootcamp Fullstack pela Generation Brasil.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/48595147?v=4">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <title>Bruna Zuppini Bacchiega · Desenvolvedora Fullstack</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+    :root {
+      --bg:    #07010F;
+      --bg2:   #0D0320;
+      --bg3:   #120530;
+      --v:     #3B0FA8;
+      --p:     #6B21A8;
+      --mid:   #9333EA;
+      --lav:   #C084FC;
+      --lil:   #DDD6FE;
+      --frost: #EDE9FE;
+      --wh:    #F8F5FF;
+      --mut:   rgba(221,214,254,0.55);
+      --bdr:   rgba(192,132,252,0.14);
+      --bdr2:  rgba(192,132,252,0.28);
+      --glass: rgba(13,3,32,0.58);
+      --glow:  rgba(192,132,252,0.22);
+      --pink:  #F0ABFC;
+    }
 
-    <!-- SWIPER CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"> 
+    html { scroll-behavior: smooth; }
 
-    <title>Portfólio Bruna Zuppini</title>
+    body {
+      background:
+        radial-gradient(circle at 15% 18%, rgba(147,51,234,0.18), transparent 32%),
+        radial-gradient(circle at 85% 12%, rgba(192,132,252,0.14), transparent 34%),
+        radial-gradient(circle at 50% 92%, rgba(59,15,168,0.18), transparent 38%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 45%, var(--bg) 100%);
+      color: var(--lil);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
 
-     <link rel="stylesheet" href="./assets/css/style.css">
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.014) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(circle at center, black 0%, transparent 78%);
+      opacity: 0.32;
+    }
 
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 30%, transparent 0%, rgba(7,1,15,0.28) 68%, rgba(7,1,15,0.78) 100%);
+    }
+
+    /* ── STAR FIELD ── */
+    #starfield {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(255,255,255,0.35);
+      animation: twinkle var(--td) ease-in-out infinite var(--tdelay);
+    }
+    @keyframes twinkle {
+      0%,100% { opacity: var(--tmin); transform: scale(1); }
+      50%      { opacity: var(--tmax); transform: scale(1.5); }
+    }
+    /* special bigger purple stars */
+    .star.purple {
+      background: radial-gradient(circle, #F0ABFC 0%, #C084FC 35%, rgba(192,132,252,0) 100%);
+      box-shadow: 0 0 18px rgba(240,171,252,0.65);
+      animation: twinkle-p var(--td) ease-in-out infinite var(--tdelay);
+    }
+    @keyframes twinkle-p {
+      0%,100% { opacity: var(--tmin); transform: scale(1); }
+      50%      { opacity: var(--tmax); transform: scale(1.8); }
+    }
+
+    /* barras/estrelas cadentes removidas: mantém apenas estrelas e constelações */
+
+    /* ambient canvas */
+    #ambient {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.05rem 5vw;
+      background: linear-gradient(180deg, rgba(7,1,15,0.88) 0%, rgba(7,1,15,0.35) 100%);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(192,132,252,0.08);
+    }
+    .logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--lav);
+      text-decoration: none;
+      text-shadow: 0 0 22px rgba(192,132,252,0.45);
+    }
+    nav { display: flex; gap: 2.5rem; }
+    nav a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: lowercase;
+      color: var(--mut);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--wh); }
+
+    /* ── WRAPPER ── */
+    .wrap { position: relative; z-index: 10; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 10rem 5vw 6rem;
+      gap: 4rem;
+    }
+    .hero-l { display: flex; flex-direction: column; }
+
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      color: var(--lav);
+      margin-bottom: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      opacity: 0;
+      animation: up 0.8s ease forwards 0.2s;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--lav); opacity: 0.5; flex-shrink: 0;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      font-weight: 400;
+      color: var(--wh);
+      line-height: 1.05;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: up 0.9s ease forwards 0.4s;
+      text-shadow: 0 0 24px rgba(192,132,252,0.1);
+    }
+    h1 em {
+      font-style: italic;
+      color: transparent;
+      background: linear-gradient(135deg, var(--lav), var(--pink), var(--wh));
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .line { display: block; }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--mut);
+      max-width: 460px;
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+      opacity: 0;
+      animation: up 0.9s ease forwards 0.6s;
+    }
+    .jp {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: rgba(192,132,252,0.4);
+      margin-bottom: 2.75rem;
+      opacity: 0;
+      animation: up 0.9s ease forwards 0.75s;
+    }
+    .cta-row {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0;
+      animation: up 0.9s ease forwards 0.9s;
+    }
+
+    .btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: lowercase;
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      display: inline-block;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
+      transform: translateX(-120%);
+      transition: transform 0.7s ease;
+    }
+    .btn:hover::before { transform: translateX(120%); }
+    .btn-p {
+      background: linear-gradient(135deg, var(--v) 0%, var(--p) 55%, var(--mid) 100%);
+      color: var(--wh);
+      border: 1px solid rgba(192,132,252,0.35);
+      box-shadow: 0 4px 18px rgba(59,15,168,0.22);
+    }
+    .btn-p:hover {
+      background: linear-gradient(135deg, var(--p) 0%, var(--mid) 100%);
+      box-shadow: 0 6px 22px rgba(59,15,168,0.32);
+      transform: translateY(-2px);
+    }
+    .btn-g {
+      background: transparent;
+      color: var(--lav);
+      border: 1px solid var(--bdr2);
+    }
+    .btn-g:hover {
+      border-color: var(--lav);
+      color: var(--wh);
+      background: rgba(107,33,168,0.1);
+    }
+
+    /* ── HEADER RIGHT / MOBILE NAV ── */
+    .head-r { display: flex; align-items: center; gap: 1.75rem; }
+    .cv-lnk {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      color: var(--lav);
+      text-decoration: none;
+      border: 1px solid var(--bdr2);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      transition: all 0.25s;
+    }
+    .cv-lnk:hover { color: var(--wh); border-color: var(--lav); background: rgba(107,33,168,0.12); }
+    .nav-cv { display: none; }
+    .burger {
+      display: none;
+      width: 34px; height: 34px;
+      border: none; background: transparent; cursor: pointer;
+      flex-direction: column; justify-content: center; gap: 5px;
+      padding: 0;
+    }
+    .burger span { width: 100%; height: 1px; background: var(--lil); transition: all 0.3s; }
+    .burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ── EXPERIENCE / TRAJETÓRIA ── */
+    #trajeto { background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 55%, var(--bg) 100%); }
+    .tl { display: flex; flex-direction: column; gap: 0; max-width: 720px; }
+    .tl-item {
+      display: grid; grid-template-columns: 130px 1px 1fr;
+      gap: 0 2rem; padding-bottom: 2.75rem; position: relative;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-when {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em;
+      color: var(--lav); padding-top: 0.15rem;
+    }
+    .tl-line { position: relative; background: var(--bdr2); }
+    .tl-line::before {
+      content: ''; position: absolute; top: 0.3rem; left: 50%; transform: translateX(-50%);
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--bg); border: 1px solid var(--lav);
+    }
+    .tl-item.now .tl-line::before { background: var(--lav); box-shadow: 0 0 10px rgba(192,132,252,0.6); }
+    .tl-body h3 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.15rem; color: var(--wh); margin-bottom: 0.35rem; }
+    .tl-org { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(192,132,252,0.55); margin-bottom: 0.6rem; }
+    .tl-body p { font-size: 0.88rem; color: var(--mut); line-height: 1.75; max-width: 52ch; }
+
+    /* ── PROJECT TAGS ── */
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .proj-tag {
+      font-family: 'Space Mono', monospace; font-size: 0.54rem; letter-spacing: 0.08em;
+      color: rgba(192,132,252,0.65); border: 1px solid var(--bdr); padding: 0.28rem 0.6rem;
+    }
+    .proj-role {
+      font-family: 'Space Mono', monospace; font-size: 0.56rem; letter-spacing: 0.15em;
+      color: rgba(221,214,254,0.4); margin-top: -1rem; margin-bottom: 1.25rem; display: block;
+    }
+
+    /* hero photo */
+    .hero-r {
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      animation: fi 1.2s ease forwards 0.7s;
+    }
+    .photo-wrap {
+      position: relative; width: 320px;
+      filter: drop-shadow(0 20px 40px rgba(7,1,15,0.4));
+    }
+    .photo-wrap::before {
+      content: '';
+      position: absolute;
+      top: -18px; left: -18px; right: 18px; bottom: 18px;
+      border: 1px solid var(--bdr);
+      pointer-events: none; z-index: 1;
+    }
+    .photo-wrap::after {
+      content: '';
+      position: absolute;
+      top: 18px; left: 18px; right: -18px; bottom: -18px;
+      border: 1px solid rgba(192,132,252,0.07);
+      pointer-events: none; z-index: 1;
+    }
+    .photo-wrap img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  position: relative;
+  z-index: 2;
+  filter: saturate(0.92) contrast(1.08);
+  border-radius: 24px 24px 8px 8px;
+  border: 1px solid rgba(192,132,252,0.22);
+}
+    .photo-tag {
+      position: absolute;
+      bottom: -14px; right: -14px;
+      z-index: 10;
+      background: var(--bg3);
+      border: 1px solid var(--bdr2);
+      padding: 0.65rem 1.1rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--lav);
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes up { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fi  { from{opacity:0} to{opacity:1} }
+
+    /* ── SECTION ── */
+    section { position: relative; z-index: 10; padding: 7rem 5vw; }
+    .s-lab {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      color: var(--lav);
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .s-lab::before { content:''; width:24px; height:1px; background:var(--lav); opacity:0.5; }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 400; color: var(--wh);
+      line-height: 1.15; margin-bottom: 3.5rem;
+    }
+    h2 em { font-style: italic; color: var(--lav); }
+
+    /* ── REVEAL ── */
+    .rv { opacity:0; transform:translateY(28px); transition:opacity 0.85s ease,transform 0.85s ease; }
+    .rv.in { opacity:1; transform:none; }
+    .rv.d1 { transition-delay:0.15s; }
+    .rv.d2 { transition-delay:0.3s; }
+
+    /* ── DIVIDER ── */
+    .hline {
+      position: relative; z-index:10;
+      height: 1px;
+      margin: 0 5vw;
+      background: linear-gradient(90deg, transparent, var(--bdr2) 30%, var(--bdr2) 70%, transparent);
+    }
+
+    /* ── ABOUT ── */
+    #about { background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%); }
+    .about-g { display:grid; grid-template-columns:1.1fr 1fr; gap:5rem; align-items:start; }
+    .about-g p { font-size:1.05rem; color:var(--mut); line-height:1.9; margin-bottom:1.75rem; }
+    .path-t {
+      font-family:'Space Mono',monospace; font-size:0.58rem; letter-spacing:0.28em; color:var(--lav);
+      margin: 2.5rem 0 1rem;
+    }
+    .badges { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .badge {
+      font-family:'Space Mono',monospace; font-size:0.56rem; letter-spacing:0.12em;
+      padding:0.38rem 0.8rem;
+      border:1px solid var(--bdr); color:rgba(192,132,252,0.6);
+      background:rgba(59,15,168,0.07); transition:all 0.25s;
+    }
+    .badge.on { border-color:rgba(192,132,252,0.32); color:var(--lil); background:rgba(107,33,168,0.18); }
+    .badge:hover { border-color:var(--lav); color:var(--wh); }
+
+    /* GitHub strip */
+    .gh-strip {
+      margin-top:2.5rem; padding:1.5rem;
+      border:1px solid var(--bdr); background:rgba(13,3,32,0.6);
+      display:grid; grid-template-columns:repeat(3,1fr);
+    }
+    .gh-item { text-align:center; border-right:1px solid var(--bdr); padding:0.5rem; }
+    .gh-item:last-child { border-right:none; }
+    .gh-num {
+      font-family:'Playfair Display',serif; font-size:2rem; color:var(--lav);
+      display:block; line-height:1; margin-bottom:0.4rem;
+    }
+    .gh-lab { font-family:'Space Mono',monospace; font-size:0.52rem; letter-spacing:0.22em; color:rgba(192,132,252,0.45); }
+
+    /* skill table */
+    .sk-tbl { width:100%; border-collapse:collapse; }
+    .sk-tbl tr { border-bottom:1px solid var(--bdr); }
+    .sk-tbl tr:last-child { border-bottom:none; }
+    .sk-tbl td { padding:0.95rem 0; vertical-align:top; }
+    .sk-tbl td:first-child {
+      font-family:'Space Mono',monospace; font-size:0.56rem; letter-spacing:0.2em; color:var(--lav);
+      width:38%; padding-right:1rem;
+    }
+    .sk-tbl td:last-child { font-size:0.9rem; color:var(--lil); font-weight:400; }
+
+    /* ── PROJECTS ── */
+    .proj-head {
+      display:flex; align-items:flex-end; justify-content:space-between;
+      margin-bottom:3rem; flex-wrap:wrap; gap:1rem;
+    }
+    .proj-head h2 { margin-bottom:0; }
+    .sw-btns { display:flex; gap:0.5rem; }
+    .sw-btn {
+      width:40px; height:40px;
+      border:1px solid var(--bdr2); background:rgba(13,3,32,0.42); color:var(--lav);
+      border-radius: 50%;
+      cursor:pointer; font-size:1rem; transition:all 0.25s;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .sw-btn:hover { background:rgba(107,33,168,0.2); border-color:var(--lav); color:var(--wh); }
+
+    .swiper { overflow:visible !important; padding-bottom:3rem !important; }
+    .proj-card {
+      background:linear-gradient(145deg, rgba(18,5,48,0.82) 0%, rgba(13,3,32,0.72) 100%);
+      border:1px solid var(--bdr);
+      padding:2.25rem; height:100%;
+      border-radius: 24px;
+      backdrop-filter: blur(14px);
+      display:flex; flex-direction:column;
+      transition:all 0.35s ease;
+      position:relative; overflow:hidden;
+    }
+    .proj-card::before {
+      content:''; position:absolute;
+      top:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg, transparent, var(--mid), transparent);
+      opacity:0; transition:opacity 0.4s;
+    }
+    .proj-card:hover { border-color:var(--bdr2); transform:translateY(-3px); box-shadow:0 12px 30px rgba(7,1,15,0.35); }
+    .proj-card:hover::before { opacity:1; }
+    .proj-lang {
+      font-family:'Space Mono',monospace; font-size:0.56rem; letter-spacing:0.2em; color:var(--lav);
+      display:flex; align-items:center; gap:0.5rem; margin-bottom:1.25rem;
+    }
+    .ldot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+    .proj-card h3 {
+      font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:400;
+      color:var(--wh); margin-bottom:0.75rem;
+    }
+    .proj-card p { font-size:0.88rem; color:var(--mut); line-height:1.75; flex:1; margin-bottom:1.75rem; }
+    .proj-lnk {
+      font-family:'Space Mono',monospace; font-size:0.58rem; letter-spacing:0.2em;
+      color:var(--lav); text-decoration:none;
+      display:inline-flex; align-items:center; gap:0.5rem; transition:gap 0.25s, color 0.25s;
+    }
+    .proj-lnk::after { content:'→'; }
+    .proj-lnk:hover { color:var(--wh); gap:0.75rem; }
+    .swiper-pagination-bullet { background:var(--bdr2) !important; opacity:1 !important; }
+    .swiper-pagination-bullet-active { background:var(--lav) !important; }
+
+    /* ── CONTACT ── */
+    #contact { background:linear-gradient(180deg, var(--bg) 0%, var(--bg2) 60%, var(--bg) 100%); }
+    .ct-wrap { display:grid; grid-template-columns:1fr 1.1fr; gap:6rem; align-items:start; }
+    .ct-info p { font-size:1.05rem; color:var(--mut); line-height:1.85; margin-bottom:2.5rem; }
+    .socials { display:flex; gap:1rem; }
+    .soc-btn {
+      width:44px; height:44px;
+      border:1px solid var(--bdr2); display:flex; align-items:center; justify-content:center;
+      text-decoration:none; transition:all 0.3s; background:rgba(13,3,32,0.42);
+      border-radius: 50%;
+    }
+    .soc-btn img { width:18px; filter:invert(72%) sepia(20%) saturate(500%) hue-rotate(220deg); opacity:0.65; transition:opacity 0.25s; }
+    .soc-btn:hover { border-color:var(--lav); background:rgba(107,33,168,0.15); box-shadow:0 0 24px rgba(107,33,168,0.3); }
+    .soc-btn:hover img { opacity:1; }
+
+    .fld { display:flex; flex-direction:column; margin-bottom:0.4rem; }
+    .fld label {
+      font-family:'Space Mono',monospace; font-size:0.56rem; letter-spacing:0.25em; color:var(--lav);
+      margin-bottom:0.5rem; margin-top:1.25rem;
+    }
+    .fld input, .fld textarea {
+      background:rgba(13,3,32,0.72); border:1px solid var(--bdr);
+      color:var(--lil);
+      border-radius: 16px;
+      font-family:'Jost',sans-serif; font-size:0.95rem; font-weight:300;
+      padding:0.85rem 1.15rem; outline:none;
+      transition:border-color 0.3s, background 0.3s; width:100%;
+    }
+    .fld input::placeholder, .fld textarea::placeholder { color:rgba(192,132,252,0.22); font-size:0.86rem; }
+    .fld input:focus, .fld textarea:focus { border-color:rgba(192,132,252,0.4); background:rgba(13,3,32,0.9); }
+    .fld textarea { min-height:120px; resize:vertical; }
+    .ferr { font-family:'Space Mono',monospace; font-size:0.52rem; letter-spacing:0.1em; color:#f87171; min-height:1.2em; }
+
+    /* ── FOOTER ── */
+    footer { position:relative; z-index:10; text-align:center; padding:3.5rem 2rem; border-top:1px solid var(--bdr); }
+    .f-cp { font-family:'Space Mono',monospace; font-size:0.55rem; letter-spacing:0.25em; color:rgba(192,132,252,0.28); }
+
+    /* ── SCROLL PROGRESS ── */
+    #progress {
+      position:fixed; top:0; left:0; height:2px; z-index:999;
+      background:linear-gradient(90deg, var(--v), var(--mid), var(--lav));
+      width:0%;
+      transition:width 0.1s linear;
+      pointer-events:none;
+    }
+
+    @media(max-width:900px){
+      #hero{grid-template-columns:1fr; padding-top:8rem;}
+      .hero-r{display:none;}
+      .about-g{grid-template-columns:1fr; gap:3rem;}
+      .ct-wrap{grid-template-columns:1fr; gap:3rem;}
+    }
+    @media(max-width:600px){
+      section{padding:5rem 5vw;}
+      .burger{display:flex;}
+      nav{
+        position:fixed; top:0; right:0; bottom:0;
+        width:min(78vw,320px);
+        flex-direction:column; align-items:flex-start; gap:2rem;
+        padding:6.5rem 2rem 2rem;
+        background:rgba(7,1,15,0.97); backdrop-filter:blur(18px);
+        border-left:1px solid var(--bdr);
+        transform:translateX(100%); transition:transform 0.35s ease;
+        z-index:150;
+      }
+      nav.open{ transform:translateX(0); }
+      nav a{ font-size:0.75rem; }
+      .head-r .cv-lnk{ display:none; }
+      .nav-cv{ display:inline-block; margin-top:0.75rem; }
+      .tl-item{ grid-template-columns:16px 1fr; }
+      .tl-line{ grid-column:1; grid-row:1 / 3; }
+      .tl-when{ grid-column:2; grid-row:1; padding-top:0; margin-bottom:0.3rem; }
+      .tl-body{ grid-column:2; grid-row:2; }
+    }
+  </style>
 </head>
-<body>    
-    <!-- Cabeçalho (header) -->
-    <header>
+<body>
 
-        <div class="menu-content">
+  <!-- SCROLL PROGRESS -->
+  <div id="progress"></div>
 
-            <!-- Título -->
-            <a href="index.html" id="titulo">Portfólio</a>
+  <!-- STARS -->
+  <div id="starfield"></div>
 
-            <!-- Menu -->
-             <nav>
-                <ul class="menu-list">
-                    <li><a href="#hero">Início</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#projects">Projetos</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-             </nav>
+  <!-- AMBIENT GLOW CANVAS -->
+  <canvas id="ambient"></canvas>
 
+  <header>
+    <a href="index.html" class="logo">bruzuppini ✦</a>
+    <nav id="nav">
+      <a href="#hero">início</a>
+      <a href="#about">sobre</a>
+      <a href="#trajeto">trajetória</a>
+      <a href="#projects">projetos</a>
+      <a href="#contact">contato</a>
+      <a href="./assets/cv/CV_Bruna_Zuppini.pdf" target="_blank" rel="noopener" class="cv-lnk nav-cv">currículo ↓</a>
+    </nav>
+    <div class="head-r">
+      <a href="./assets/cv/CV_Bruna_Zuppini.pdf" target="_blank" rel="noopener" class="cv-lnk">currículo ↓</a>
+      <button class="burger" id="burger" aria-label="abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-l">
+        <p class="eyebrow">desenvolvedora fullstack · são paulo, br</p>
+        <h1><span class="line">Bruna</span><span class="line"><em>Zuppini.</em></span></h1>
+        <p class="hero-desc">Desenvolvo aplicações web completas com React, TypeScript, Node.js e NestJS — do consumo de APIs no frontend à modelagem de dados no backend. Formação em Ciência e Tecnologia pela UFABC e Bootcamp Fullstack pela Generation Brasil.</p>
+        <div class="cta-row">
+          <a href="#contact" class="btn btn-p">entre em contato</a>
+          <a href="#projects" class="btn btn-g">ver projetos</a>
+          <a href="./assets/cv/CV_Bruna_Zuppini.pdf" target="_blank" rel="noopener" class="btn btn-g">baixar currículo</a>
+        </div>
+      </div>
+      <div class="hero-r">
+  <div class="photo-wrap">
+    <img 
+      src="https://avatars.githubusercontent.com/u/48595147?v=4" 
+      alt="Bruna Zuppini"
+      loading="eager"
+      referrerpolicy="no-referrer"
+    >
+    <div class="photo-tag">fullstack · 2026</div>
+  </div>
+</div>
+    </section>
+
+    <div class="hline"></div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-g">
+        <div class="rv">
+          <div class="s-lab">sobre mim</div>
+          <h2>desenvolvimento com<br><em>cuidado e propósito</em></h2>
+          <p>Sou desenvolvedora fullstack com experiência prática em aplicações web completas, trabalhando com React, TypeScript e Node.js. Participei do desenvolvimento das plataformas VittaFit, VittaRun e VittaLis como projetos do Bootcamp Generation Brasil, com foco em componentização, consumo de APIs REST e colaboração em equipe via Git.</p>
+          <p>Tenho perfil proativo e organizado, com facilidade para resolver problemas e me adaptar a novos contextos — algo que carrego de experiências anteriores em atendimento e suporte administrativo, antes de migrar para tecnologia.</p>
+          <p class="path-t">✦ current path</p>
+          <div class="badges">
+            <span class="badge on">cursando ciência da computação (ufabc)</span>
+            <span class="badge on">aprofundando react + typescript</span>
+            <span class="badge on">construindo apis com nestjs</span>
+            <span class="badge">estudando python</span>
+            <span class="badge">explorando c++</span>
+            <span class="badge">estudando c#</span>
+          </div>
+          <div class="gh-strip rv d1" id="gh-strip">
+            <div class="gh-item"><span class="gh-num" id="gh-repos">—</span><span class="gh-lab">repositórios</span></div>
+            <div class="gh-item"><span class="gh-num" id="gh-followers">—</span><span class="gh-lab">followers</span></div>
+            <div class="gh-item"><span class="gh-num" id="gh-following">—</span><span class="gh-lab">following</span></div>
+          </div>
+        </div>
+        <div class="rv d1">
+          <table class="sk-tbl">
+            <tr><td>nome</td><td>Bruna Zuppini Bacchiega</td></tr>
+            <tr><td>função</td><td>desenvolvedora fullstack</td></tr>
+            <tr><td>localização</td><td>Santo André / São Paulo, BR</td></tr>
+            <tr><td>frontend</td><td>React · TypeScript · HTML · CSS</td></tr>
+            <tr><td>backend</td><td>Node.js · NestJS · REST APIs · MySQL</td></tr>
+            <tr><td>linguagens de programação</td><td>JavaScript · TypeScript · SQL</td></tr>
+            <tr><td>práticas</td><td>POO · Scrum/Ágil · Git & GitHub</td></tr>
+            <tr><td>ferramentas</td><td>Git · Insomnia · VS Code</td></tr>
+            <tr><td>idiomas</td><td>Português (nativo) · Inglês (interm./avançado) · Espanhol (básico) · Japonês (básico)</td></tr>
+            <tr><td>aprendendo</td><td>Python · C++ · C#</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="hline"></div>
+
+    <!-- TRAJETÓRIA -->
+    <section id="trajeto">
+      <div class="s-lab rv">trajetória</div>
+      <h2 class="rv">formação <em>e experiência</em></h2>
+      <div class="tl">
+        <div class="tl-item now rv">
+          <div class="tl-when">2026 — atual</div>
+          <div class="tl-line"></div>
+          <div class="tl-body">
+            <h3>Bacharelado em Ciência e Tecnologia</h3>
+            <div class="tl-org">Universidade Federal do ABC (UFABC) · cursando</div>
+            <p>Formação interdisciplinar em Santo André, com continuidade prevista em Ciência da Computação.</p>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="tl-when">concluído 05/2026</div>
+          <div class="tl-line"></div>
+          <div class="tl-body">
+            <h3>Bootcamp Desenvolvedor Full Stack</h3>
+            <div class="tl-org">Generation Brasil</div>
+            <p>JavaScript, TypeScript, React, Node.js, MySQL, Git e metodologias ágeis (Scrum), com projetos em equipe do início ao fim.</p>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="tl-when">05/2024 — 07/2024</div>
+          <div class="tl-line"></div>
+          <div class="tl-body">
+            <h3>Garçonete e Assistente Geral</h3>
+            <div class="tl-org">Restaurante Esquina Burger, Santo André/SP</div>
+            <p>Atendimento presencial e delivery, organização do estabelecimento e suporte operacional.</p>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="tl-when">06/2022</div>
+          <div class="tl-line"></div>
+          <div class="tl-body">
+            <h3>Certificação Start 2.0</h3>
+            <div class="tl-org">Escola SAGA, Santo André/SP · 60h</div>
+            <p>Formação de nível iniciante/intermediário como preparação para a transição de carreira.</p>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="tl-when">10/2019 — 12/2020</div>
+          <div class="tl-line"></div>
+          <div class="tl-body">
+            <h3>Jovem Aprendiz Administrativo</h3>
+            <div class="tl-org">Fórum Federal de Mauá, 40ª Subseção Judiciária</div>
+            <p>Apoio em audiências de conciliação, elaboração e revisão de documentos administrativos e jurídicos, organização de processos e atendimento ao público.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hline"></div>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="proj-head rv">
+        <div><div class="s-lab">projetos</div><h2>Meus <em>repositórios</em></h2></div>
+        <div class="sw-btns">
+          <button class="sw-btn" id="prev-btn">←</button>
+          <button class="sw-btn" id="next-btn">→</button>
+        </div>
+      </div>
+      <div class="swiper projects-swiper rv d1">
+        <div class="swiper-wrapper" id="proj-wrap">
+
+          <div class="swiper-slide">
+            <div class="proj-card">
+              <div class="proj-lang"><span class="ldot" style="background:#3178c6"></span>NestJS · React</div>
+              <h3>VittaFit</h3>
+              <span class="proj-role">projeto em equipe · dev tester</span>
+              <p>Plataforma de gestão de saúde, treinos e alimentação: centraliza dados físicos, dietas e rotinas de exercício por usuário, com relacionamento individual entre usuário, dieta e treino.</p>
+              <div class="proj-tags"><span class="proj-tag">NestJS</span><span class="proj-tag">TypeScript</span><span class="proj-tag">TypeORM</span><span class="proj-tag">MySQL</span><span class="proj-tag">Swagger</span></div>
+              <a href="https://github.com/Grupo-5-JS-14/VittaFit-FrontEnd" target="_blank" rel="noopener" class="proj-lnk">ver repositório</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="proj-card">
+              <div class="proj-lang"><span class="ldot" style="background:#3178c6"></span>NestJS · React</div>
+              <h3>VittaRun</h3>
+              <span class="proj-role">projeto em equipe · dev</span>
+              <p>Backend de uma plataforma de delivery focada em alimentação saudável: gestão de lojas por categoria (fit, vegana, natural), com busca por nome e categoria.</p>
+              <div class="proj-tags"><span class="proj-tag">NestJS</span><span class="proj-tag">TypeScript</span><span class="proj-tag">TypeORM</span><span class="proj-tag">MySQL</span><span class="proj-tag">Insomnia</span></div>
+              <a href="https://github.com/Grupo-5-JS-14/VittaRun-FrontEnd" target="_blank" rel="noopener" class="proj-lnk">ver repositório</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="proj-card">
+              <div class="proj-lang"><span class="ldot" style="background:#3178c6"></span>NestJS · React</div>
+              <h3>VittaLis</h3>
+              <span class="proj-role">projeto em equipe</span>
+              <p>Terceira plataforma do ecossistema Vitta, construída pela mesma equipe e com a mesma stack — interface React consumindo APIs REST do backend NestJS.</p>
+              <div class="proj-tags"><span class="proj-tag">NestJS</span><span class="proj-tag">TypeScript</span><span class="proj-tag">TypeORM</span><span class="proj-tag">MySQL</span></div>
+              <a href="https://github.com/Grupo-5-JS-14/VittaLis-FrontEnd" target="_blank" rel="noopener" class="proj-lnk">ver repositório</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="proj-card">
+              <div class="proj-lang"><span class="ldot" style="background:#3572A5"></span>Node.js</div>
+              <h3>Conta Bancária</h3>
+              <span class="proj-role">projeto individual · 2024</span>
+              <p>Sistema de gerenciamento bancário em backend puro: criação de conta, depósito, saque e consulta de saldo, aplicando orientação a objetos e tipagem estática.</p>
+              <div class="proj-tags"><span class="proj-tag">Node.js</span><span class="proj-tag">TypeScript</span><span class="proj-tag">POO</span></div>
+              <a href="https://github.com/bruzuppini/conta_bancaria" target="_blank" rel="noopener" class="proj-lnk">ver repositório</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="proj-card">
+              <div class="proj-lang"><span class="ldot" style="background:#e34c26"></span>HTML · CSS · JS</div>
+              <h3>Portfólio Pessoal</h3>
+              <span class="proj-role">projeto individual</span>
+              <p>Este site: apresentação de projetos e habilidades técnicas, com integração à API do GitHub e formulário de contato funcional.</p>
+              <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
+              <a href="https://github.com/bruzuppini/portfolio" target="_blank" rel="noopener" class="proj-lnk">ver repositório</a>
+            </div>
+          </div>
 
         </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <p style="margin-top:2rem;font-size:0.85rem;color:var(--mut);">Outros repositórios e experimentos estão disponíveis no <a href="https://github.com/bruzuppini" target="_blank" rel="noopener" style="color:var(--lav);">GitHub</a>.</p>
+    </section>
 
-    </header>
+    <div class="hline"></div>
 
-    <!-- Conteúdo principal (main) -->
-    <main>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="ct-wrap">
+        <div class="ct-info rv">
+          <div class="s-lab">contato</div>
+          <h2>Vamos<br><em>conversar?</em></h2>
+          <p>Estou aberta a oportunidades e adoraria ouvir de você. Se tiver um projeto interessante ou quiser se conectar, me manda uma mensagem!</p>
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/brunazuppini/" class="soc-btn" aria-label="LinkedIn" target="_blank" rel="noopener"><img src="./assets/icons/social/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://www.github.com/bruzuppini" class="soc-btn" aria-label="GitHub" target="_blank" rel="noopener"><img src="./assets/icons/social/github.svg" alt="GitHub"></a>
+            <a href="https://www.instagram.com/bruzuppini/" class="soc-btn" aria-label="Instagram" target="_blank" rel="noopener"><img src="./assets/icons/social/instagram.svg" alt="Instagram"></a>
+          </div>
+        </div>
+        <form id="formulario" action="https://formsubmit.co/3c88d9878c463a457eff1fa2203b68bf" method="POST" class="rv d1">
+          <input type="hidden" name="_next" value="https://bruzuppini.github.io/portfolio/sucess.html">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="fld"><label for="nome">nome</label><input id="nome" name="nome" type="text" placeholder="Seu nome completo"><span class="ferr" id="erro-nome"></span></div>
+          <div class="fld"><label for="email">e-mail</label><input id="email" name="email" type="text" placeholder="seu@email.com"><span class="ferr" id="erro-email"></span></div>
+          <div class="fld"><label for="assunto">assunto</label><input id="assunto" name="assunto" type="text" placeholder="Sobre o que vamos conversar?"><span class="ferr" id="erro-assunto"></span></div>
+          <div class="fld"><label for="mensagem">mensagem</label><textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..."></textarea><span class="ferr" id="erro-mensagem"></span></div>
+          <button class="btn btn-p" type="submit" style="margin-top:1.75rem;align-self:flex-start">enviar mensagem</button>
+        </form>
+      </div>
+    </section>
 
-        <!-- Seção de Boas-vindas -->
-        <section id="hero" class="section-container hero-container">
-        
-            <!-- Boas-vindas! -->
-            <article class="hero-content">
-                <span> 💻 Olá, meu nome é Bruna Zuppini! </span>
-                <h1>Sou uma Desenvolvedora Full Stack!</h1>
-                <p>Especializada em criar experiências digitais incríveis. 
-                    Conheça meus projetos e entre em contato.</p>
+  </div>
 
-                <div class="buttons-container">
-                    <a href="#contact" class="botao">Entre em contato!</a>
-                    <a href="#about" class="botao-outline">Saiba mais...</a>
-                </div>
+  <footer>
+    <p class="f-cp">desenvolvido por bruna zuppini · 2026</p>
+  </footer>
 
-            </article>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+  /* ──────────────────────────────────────────
+     STAR FIELD — tiny white + purple stars
+  ─────────────────────────────────────────── */
+  (function(){
+    const field = document.getElementById('starfield');
+    const total = 90;
+    for(let i=0;i<total;i++){
+      const s = document.createElement('div');
+      const isPurple = Math.random() < 0.06;
+      const size = isPurple ? (Math.random()*3+2) : (Math.random()*1.8+0.4);
+      s.className = 'star' + (isPurple ? ' purple' : '');
+      s.style.cssText = `
+        width:${size}px; height:${size}px;
+        top:${Math.random()*100}%;
+        left:${Math.random()*100}%;
+        --td:${2.5+Math.random()*5}s;
+        --tdelay:${-(Math.random()*6)}s;
+        --tmin:${0.05+Math.random()*0.1};
+        --tmax:${isPurple ? 0.7+Math.random()*0.3 : 0.5+Math.random()*0.5};
+      `;
+      field.appendChild(s);
+    }
+    /* Sem estrelas cadentes para não aparecerem barras brancas passando no fundo. */
+  })();
 
-            <!-- Imagem -->
-            <div class="hero-image">
-                <img src="./assets/img/eu.jpg"
-                alt="Bruna Zuppini"
-                class="float-animation">
+  /* ──────────────────────────────────────────
+     AMBIENT GLOW CANVAS (slow drifting orbs)
+  ─────────────────────────────────────────── */
+  (function(){
+    const cv = document.getElementById('ambient');
+    const cx = cv.getContext('2d');
+    let W,H,t=0;
+    function resize(){ W=cv.width=window.innerWidth; H=cv.height=window.innerHeight; }
+    window.addEventListener('resize',resize); resize();
+    function blob(x,y,r,color){
+      const g=cx.createRadialGradient(x,y,0,x,y,r);
+      g.addColorStop(0,color); g.addColorStop(1,'transparent');
+      cx.fillStyle=g; cx.beginPath(); cx.arc(x,y,r,0,Math.PI*2); cx.fill();
+    }
+    function loop(){
+      cx.clearRect(0,0,W,H); t+=0.003;
+      blob(W*0.82+Math.sin(t)*90,      H*0.18+Math.cos(t*0.7)*70, 380,'rgba(107,33,168,0.10)');
+      blob(W*0.12+Math.cos(t*0.6)*70,  H*0.65+Math.sin(t*0.8)*80, 320,'rgba(59,15,168,0.09)');
+      blob(W*0.5+Math.sin(t*0.45)*50,  H*0.38+Math.cos(t*0.4)*50, 260,'rgba(147,51,234,0.06)');
+      blob(W*0.68+Math.cos(t*0.55)*60, H*0.8+Math.sin(t*0.65)*40, 200,'rgba(192,132,252,0.05)');
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
 
-            </div>
+  /* ──────────────────────────────────────────
+     SCROLL PROGRESS BAR
+  ─────────────────────────────────────────── */
+  window.addEventListener('scroll',()=>{
+    const pct = window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+    document.getElementById('progress').style.width=pct+'%';
+  });
 
-        </section>
+  /* ──────────────────────────────────────────
+     SCROLL REVEAL
+  ─────────────────────────────────────────── */
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  },{threshold:0.1});
+  document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
-        <!-- Seção Sobre -->
-        <section id="about" class="section-container about-container">
+  /* ──────────────────────────────────────────
+     GITHUB API
+  ─────────────────────────────────────────── */
+  /* Projetos são curados manualmente no HTML (mais contexto pra quem visita
+     do que uma descrição genérica puxada da API). O carrossel inicializa
+     direto; as estatísticas do perfil (repos/seguidores) ainda vêm da API. */
+  const swiper = new Swiper('.projects-swiper',{
+    slidesPerView:1, spaceBetween:20,
+    pagination:{el:'.swiper-pagination',clickable:true},
+    breakpoints:{640:{slidesPerView:2},1024:{slidesPerView:3}}
+  });
 
-        </section>
+  async function loadGHStats(){
+    try{
+      const u=await(await fetch('https://api.github.com/users/bruzuppini')).json();
+      document.getElementById('gh-repos').textContent=u.public_repos??'—';
+      document.getElementById('gh-followers').textContent=u.followers??'—';
+      document.getElementById('gh-following').textContent=u.following??'—';
+    }catch(e){console.warn(e);}
+  }
+  loadGHStats();
 
-        <!-- Seção Projetos -->
-        <section id="projects" class="section-container projects-container">
-            <h2>Meus Projetos</h2>
+  document.getElementById('prev-btn').addEventListener('click',()=>swiper&&swiper.slidePrev());
+  document.getElementById('next-btn').addEventListener('click',()=>swiper&&swiper.slideNext());
 
-            <!-- Swiper Container -->
-             <div class="swiper projects-swiper">
-                <div class="swiper-wrapper">
-             
-             </div>
+  /* ──────────────────────────────────────────
+     MOBILE NAV
+  ─────────────────────────────────────────── */
+  (function(){
+    const burger=document.getElementById('burger');
+    const nav=document.getElementById('nav');
+    burger.addEventListener('click',()=>{
+      const open=nav.classList.toggle('open');
+      burger.classList.toggle('open',open);
+      burger.setAttribute('aria-expanded',open);
+    });
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      nav.classList.remove('open'); burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    }));
+  })();
 
-             <!-- Botões de navegação -->
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-
-              <!-- Paginação -->
-              <div class="swiper-pagination"></div>
-             </div>
-        </section>
-
-        <!-- Seção Formulário de Contato --> 
-        <section id="contact" class="section-container contact-container">
-
-            <!-- Redes sociais -->
-             <article class="contact-info">
-                <h2>Entre em contato</h2>
-                <p>Estou aberta a oportunidades e adoraria ouvir de você! 
-                    Se você tiver um projeto interessante ou quiser se conectar, 
-                    sinta-se à vontade para entrar em contato comigo.</p>
-
-                <div class="social-container">
-                    <a href="https://www.linkedin.com/in/brunazuppini/" class="social-icon" aria-label="LinkedIn">
-                        <img src="./assets/icons/social/linkedin.svg" alt="Link para o LinkedIn">
-                    </a>
-                    <a href="https://www.github.com/bruzuppini" class="social-icon" aria-label="GitHub">
-                        <img src="./assets/icons/social/github.svg" alt="Link para o GitHub">
-                    </a>
-                    <a href="https://www.instagram.com/bruzuppini/" class="social-icon" aria-label="Instagram">
-                        <img src="./assets/icons/social/instagram.svg" alt="Link para o Instagram">
-                    </a>
-                </div>
-             </article>
-
-             <!-- Formulário de contato -->
-              <form id="formulario" action="https://formsubmit.co/3c88d9878c463a457eff1fa2203b68bf" method="POST">
-
-                <input type="hidden" name="_next" value="https://bruzuppini.github.io/projeto_html/success.html">
-                <input type="hidden" name="_captcha" value="false">
-
-                <label for="nome">Nome:</label>
-                <input id="nome" name="nome" type="text" placeholder="Digite o seu nome completo">
-                <span id="erro-nome"></span>
-
-                <label for="email">E-mail:</label>
-                <input id="email" name="email" type="text" placeholder="Digite o seu e-mail">
-                <span id="erro-email"></span>
-
-                <label for="assunto">Assunto:</label>
-                <input id="assunto" name="assunto" type="text" placeholder="Digite o assunto da mensagem">
-                <span id="erro-assunto"></span>
-
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..."></textarea>
-                <span id="erro-mensagem"></span>
-
-                <button class="botao" type="submit">Enviar Mensagem</button>
-              </form>
-        </section>
-
-    </main>
-
-    <!-- Rodapé (footer) -->
-    <footer>
-        Desenvolvido por Bruna Zuppini | 2026
-
-    </footer>
-
-    <!-- SWIPER JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Script JavaScript-->
-    <script src="assets/js/script.js" defer></script>
-
+  /* ──────────────────────────────────────────
+     FORM VALIDATION
+  ─────────────────────────────────────────── */
+  document.getElementById('formulario').addEventListener('submit',function(e){
+    let ok=true;
+    [{id:'nome',err:'erro-nome',msg:'campo obrigatório'},
+     {id:'email',err:'erro-email',msg:'e-mail inválido',fn:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},
+     {id:'assunto',err:'erro-assunto',msg:'campo obrigatório'},
+     {id:'mensagem',err:'erro-mensagem',msg:'campo obrigatório'}
+    ].forEach(f=>{
+      const el=document.getElementById(f.id),er=document.getElementById(f.err),v=el.value.trim();
+      const valid=f.fn?f.fn(v):v.length>0;
+      if(!valid){er.textContent=f.msg;el.style.borderColor='rgba(248,113,113,0.45)';ok=false;}
+      else{er.textContent='';el.style.borderColor='';}
+    });
+    if(!ok) e.preventDefault();
+  });
+  </script>
 </body>
 </html>
